@@ -58,8 +58,8 @@ nav.scrolled{box-shadow:0 2px 20px rgba(40,85,160,.12)}
 .hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;align-items:center;position:relative;z-index:1}
 .hero-text{animation:fadeUp .9s ease-out}
 .hero-text h1{font-size:clamp(2rem,4.5vw,3.4rem);line-height:1.12;color:var(--blue-dark);margin-bottom:1.2rem}
-.hero-text h1 .hl{color:var(--accent);position:relative;display:inline-block}
-.hero-text h1 .hl::after{content:'';position:absolute;bottom:2px;left:0;right:0;height:8px;background:var(--accent);opacity:.15;border-radius:4px}
+.hero-text h1 .hl{color:#E53935;position:relative;display:inline-block}
+.hero-text h1 .hl::after{content:'';position:absolute;bottom:2px;left:0;right:0;height:8px;background:#E53935;opacity:.15;border-radius:4px}
 .hero-text>p{font-size:1.1rem;color:var(--text-light);line-height:1.7;margin-bottom:2rem;max-width:520px}
 .hero-stats{display:flex;gap:2.5rem;margin-bottom:2.2rem}
 .stat{text-align:center}
@@ -209,7 +209,7 @@ footer a{color:var(--accent);text-decoration:none}
 <div class="hero-inner">
 <div class="hero-text">
 <h1>Подари <span class="hl">котику</span> тёплый дом</h1>
-<p>Студенческий проект РГГУ по помощи бездомным кошкам. Мы находим, лечим и помогаем пристроить котиков, которые ищут любящую семью.</p>
+<p>Студенческий проект РГГУ о помощи бездомным кошкам. Мы находим, лечим и помогаем пристроить котиков, которые ищут любящую семью.</p>
 <div class="hero-stats">
 <div class="stat"><div class="stat-num">19</div><div class="stat-label">Ищут дом</div></div>
 <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Нашли дом</div></div>
@@ -488,8 +488,8 @@ footer a{color:var(--accent);text-decoration:none}
 </div>
 <div class="about-email anim anim-up">
 <h3>Свяжитесь с нами</h3>
-<div class="email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="da91b5aeb3b1b3f7a9aeafbebfb4aebbb79aa3bbb4bebfa2f4a8af">[email&#160;protected]</a></div>
-<a href="/cdn-cgi/l/email-protection#c388acb7aaa8aaeeb0b7b6a7a6adb7a2ae83baa2ada7a6bbedb1b6">Написать письмо</a>
+<div class="email">Kotiki-studentam@yandex.ru</div>
+<a href="mailto:Kotiki-studentam@yandex.ru">Написать письмо</a>
 </div>
 </section>
 
@@ -500,9 +500,9 @@ footer a{color:var(--accent);text-decoration:none}
 <a href="#anketa" class="btn btn-white">Заполнить анкету</a>
 </section>
 
-<footer><p>&copy; 2026 «Котики ищут дом» — студенческий проект РГГУ &nbsp;|&nbsp; <a href="/cdn-cgi/l/email-protection#d59ebaa1bcbebcf8a6a1a0b1b0bba1b4b895acb4bbb1b0adfba7a0"><span class="__cf_email__" data-cfemail="672c08130e0c0e4a14131203020913060a271e060903021f491512">[email&#160;protected]</span></a></p></footer>
+<footer><p>&copy; 2026 «Котики ищут дом» — студенческий проект РГГУ &nbsp;|&nbsp; <a href="mailto:Kotiki-studentam@yandex.ru">Kotiki-studentam@yandex.ru</a></p></footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // Nav scroll effect
 window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50)});
 
@@ -514,4 +514,14 @@ document.querySelectorAll('.anim').forEach(el=>obs.observe(el));
 const catObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.animation='scaleIn .5s ease-out forwards';e.target.style.animationDelay=(.05*[...e.target.parentNode.children].indexOf(e.target))+'s';catObs.unobserve(e.target);}});},{threshold:.1});
 document.querySelectorAll('.cat-card,.fh-card,.dis-card,.about-card').forEach(el=>{el.style.opacity='0';catObs.observe(el);});
 
-function selectCat(name){document.getElementById('catSelect').val
+function selectCat(name){document.getElementById('catSelect').value=name;document.getElementById('anketa').scrollIntoView({behavior:'smooth'});}
+
+function submitForm(){
+  document.getElementById('formContent').style.display='none';
+  document.getElementById('formSuccess').style.display='block';
+}
+
+// Close mobile nav on click
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
+</script>
+</body></html>
